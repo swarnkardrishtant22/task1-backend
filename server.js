@@ -62,6 +62,11 @@ app.delete('/items/:id', (req, res) => {
     res.json({ message: 'Deleted successfully' });
 });
 
+// 404 handler for unknown routes
+app.use((req, res) => {
+    res.status(404).json({ error: 'Route not found' });
+});
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
